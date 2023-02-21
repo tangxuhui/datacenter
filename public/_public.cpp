@@ -262,7 +262,7 @@ void UpdateStr(char *str,const char *str1,const char *str2,bool bloop)
   if ( (str1 == 0) || (str2 == 0) ) return;
 
   // 如果bloop为true并且str2中包函了str1的内容，直接返回，因为会进入死循环，最终导致内存溢出。
-  if ( (bloop==true) && (strstr(str2,str1)>0) ) return;
+  if ( (bloop==true) && (strstr(str2,str1)>(char*)0) ) return;
 
   // 尽可能分配更多的空间，但仍有可能出现内存溢出的情况，最好优化成string。
   int ilen=strlen(str)*10;
